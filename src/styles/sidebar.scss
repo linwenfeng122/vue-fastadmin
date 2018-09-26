@@ -102,24 +102,27 @@
         display: none;
       }
     }
-    .el-input--suffix{
-      display: none;
-    }
+
     .sidebar-container {
       width: 36px;
       flex: 0 0 36px;
+      .el-input--suffix{
+        display: none;
+      }
     }
     .submenu-title-noDropdown {
       padding-left: 10px !important;
       position: relative;
       .el-tooltip {
-        padding: 0 10px !important;
+        // padding: 0 10px !important;
+        padding: 0 10px 0 5px!important;
       }
     }
     .el-submenu {
       overflow: hidden;
       &>.el-submenu__title {
-        padding-left: 10px !important;
+        // padding-left: 10px !important;
+        padding-left: 5px !important;
         .el-submenu__icon-arrow {
           display: none;
         }
