@@ -1,0 +1,173 @@
+#app {
+    // 主题部分
+    .main-container {
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-x: hidden;
+        .app-main {
+          height: calc(100% - 84px);
+          padding: 20px;
+          flex: auto;
+          overflow-y: auto;
+        }
+      }
+    // 侧边栏
+    .sidebar-container {
+        transition: width 0.28s;
+        width: 230px ;
+        flex: 0 0 230px;
+        height: 100%;
+        font-size: 0px;
+        overflow: hidden;
+         .fast-title{
+           height: 50px;
+           line-height: 50px;
+           text-align: center;
+           background-color: #15a589;
+           color: #fff;
+           font-size: 20px;
+           overflow: hidden;
+         }
+         .scrollbar-wrapper {
+            height: calc(100% + 15px);
+            .el-scrollbar__view {
+                height: 100%;
+            }
+        }
+        .el-submenu .el-menu-item {
+          min-width: 230px ;
+        }
+        
+        .el-menu {
+            border: none;
+            height: 100%;
+            width: 100% ;
+          
+            .el-menu-item [class^=el-icon-] {
+                margin-right: 0;
+            }
+            .el-submenu [class^=el-icon-]  {
+                margin-right: 0;
+             }
+             .el-menu--inline .el-menu-item{
+              background-color: #2c3b41!important;
+             }
+             .el-menu-item,
+             .el-submenu__title{
+               position: relative;
+             }
+             .el-submenu .el-menu-item{
+               height: 42px;
+               line-height: 42px;
+             }
+             .el-menu-item:hover,
+             .el-menu-item:hover i,
+             .el-submenu__title:hover,
+             .el-submenu__title:hover i{
+                color: #fff!important;
+             }
+             .el-submenu.is-opened .el-submenu__title::after{
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 3px;
+              height: 100%;
+              background-color: #18bc9c;
+             }
+             .tree-one.is-active::after,
+             .tree-one:hover::after,
+             .el-submenu__title:hover::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 100%;
+                background-color: #18bc9c;
+             }
+        }       
+        
+    }
+   .hideSidebar {
+    .user-info{
+       padding: 10px 0 0 5px;
+      .img-left {
+        width: 25px;
+        height: 25px;
+      }
+      .user-right{
+        display: none;
+      }
+    }
+    .el-input--suffix{
+      display: none;
+    }
+    .sidebar-container {
+      width: 36px;
+      flex: 0 0 36px;
+    }
+    .submenu-title-noDropdown {
+      padding-left: 10px !important;
+      position: relative;
+      .el-tooltip {
+        padding: 0 10px !important;
+      }
+    }
+    .el-submenu {
+      overflow: hidden;
+      &>.el-submenu__title {
+        padding-left: 10px !important;
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+
+    .el-menu--collapse {
+      .el-submenu {
+        &>.el-submenu__title {
+          &>span {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    }
+}
+
+/***
+ *   由于侧边栏是图标模式，样式已经不再#app范围内
+*/
+.el-menu-item, .el-submenu__title{
+  height: 42px;
+  line-height: 42px;
+}
+.el-menu.el-menu--popup{
+  .el-menu-item {
+    background-color: #2c3b41!important;
+    &:hover {
+       color:  #fff!important;
+    }
+  }
+ 
+ }
+
+/*菜单关闭*/
+.el-submenu>.el-submenu__title .el-submenu__icon-arrow{
+	-webkit-transform: rotateZ(-90deg); 
+	-ms-transform: rotate(-90deg);
+	transform: rotateZ(-90deg); 
+}
+/*菜单展开*/
+.el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow{
+	-webkit-transform: rotateZ(0deg); 
+	-ms-transform: rotate(0deg);
+	transform: rotateZ(0deg); 
+}
