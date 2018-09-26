@@ -1,6 +1,8 @@
 # vue-fastadmin
 
-> A Vue.js project
+> 参考框架：
+  https://panjiachen.github.io/vue-element-admin/#/dashboard
+  https://demo.fastadmin.net/admin/index/login.html
 
 ## Build Setup
 
