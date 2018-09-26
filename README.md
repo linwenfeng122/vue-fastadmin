@@ -2,8 +2,11 @@
 
 > 参考框架：
   https://panjiachen.github.io/vue-element-admin/#/dashboard
+  https://admin.iviewui.com/join/join_page
   https://demo.fastadmin.net/admin/index/login.html
-
+ 主要使用：
+   vue-element 的整体路由构建
+   fastadmin的样式,以及iviewui的导航栏和布局格式
 ## Build Setup
 
 ``` bash
