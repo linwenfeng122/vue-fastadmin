@@ -53,9 +53,7 @@ export default {
   },
   watch: {
     isClose(newVal,odlVal) {
-         if (!this.$route.matched[0].name) {
-           this.opened = [this.$route.path]
-         }
+         if (!this.$route.matched[0].name) this.opened = [this.$route.path]
          else {
             this.$route.matched.forEach((item,index) => {
                 if(index == 0) item.path = item.path.replace('/','')
