@@ -42,7 +42,7 @@ export default {
   },
   methods: {
    select(index,indexPath) {
-        // console.log(indexPath)
+        console.log(indexPath)
         this.opened = [...indexPath];
    }
   },
@@ -53,12 +53,16 @@ export default {
   },
   watch: {
     isClose(newVal,odlVal) {
-         if (!this.$route.meta.search) this.opened = [...this.$route.path]
+         if (!this.$route.matched[0].name) {
+           this.opened = [this.$route.path]
+         }
          else {
-            this.$route.matched.forEach(item => {
+            this.$route.matched.forEach((item,index) => {
+                if(index == 0) item.path = item.path.replace('/','')
                 this.opened.push(item.path)
             });
          }
+          
     }
   }
 }

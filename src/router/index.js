@@ -43,44 +43,45 @@ export const asyncRouterMap = [
       path: 'index',
       component: _import('components-demo/index'),
       name: 'componentIndex',
-      meta: {title: 'componentIndex',search: '2'}
+      meta: {title: 'componentIndex'}
      },
      {
       path: 'demo',
       component: _import('components-demo/demo'),
       name: 'componentDemo',
-      meta: {title: 'componentDemo',search: '2'}
+      meta: {title: 'componentDemo'}
      }
     ]
   },
   {
     path: '/table',
     component: Layout,
+    name: 'table',
     redirect: 'noredirect',
      meta: {title: 'table',icon: 'table'},
     children:[{
       path:'basisTable',
       component: _import('table/basisTable'),
       name: 'basisTable',
-      meta: {title: 'basisTable',search: '2'}
+      meta: {title: 'basisTable'}
     },
     {
       path:'customTable',
       component: _import('table/customTable'),
       name: 'customTable',
-      meta: {title: 'customTable',search: '2'}
+      meta: {title: 'customTable'}
     },
      {
       path:'picTable',
       component: _import('table/picTable'),
       name: 'picTable',
-      meta: {title: 'picTable',search: '2'}
+      meta: {title: 'picTable'}
     },
     {
       path:'testCustomTable',
       component: _import('table/testCustomTable'),
       name: 'testCustomTable',
-      meta: {title: 'testCustomTable',search: '2'}
+      meta: {title: 'testCustomTable'}
     }]
   },
   { path: '*', redirect: '/404', hidden: true }

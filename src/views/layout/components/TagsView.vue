@@ -126,19 +126,19 @@ export default {
       if (bodyWidth < outerWidth) {
         this.tagBodyLeft = 0
       } else if (tag.offsetLeft < -this.tagBodyLeft) {
-         console.log("lll")
+        //  console.log("lll")
         // 标签在可视区域左侧
         this.tagBodyLeft = -tag.offsetLeft + this.outerPadding
       } else if (tag.offsetLeft > -this.tagBodyLeft && tag.offsetLeft + tag.offsetWidth < -this.tagBodyLeft + outerWidth) {
         // 标签在可视区域
-        console.log(tag.offsetLeft > -this.tagBodyLeft,tag.offsetLeft + tag.offsetWidth < -this.tagBodyLeft + outerWidth)
+        // console.log(tag.offsetLeft > -this.tagBodyLeft,tag.offsetLeft + tag.offsetWidth < -this.tagBodyLeft + outerWidth)
         this.tagBodyLeft = Math.min(0, outerWidth - tag.offsetWidth - tag.offsetLeft - this.outerPadding)
       } else {
         // 标签在可视区域右侧
-        console.log("rrr")
+        // console.log("rrr")
         this.tagBodyLeft = -(tag.offsetLeft - (outerWidth - this.outerPadding - tag.offsetWidth))
       }
-      console.log(this.tagBodyLeft)
+      // console.log(this.tagBodyLeft)
     },
     closeSelectedTag(view) {
       this.$store.dispatch('delVisitedViews', view).then((views) => {
