@@ -9,7 +9,7 @@
   
  主要使用：
  
-   vue-element 的整体路由构建
+   vue-element-admin的框架
    
    fastadmin的样式,以及iviewui的导航栏和布局格式
 ## Build Setup
