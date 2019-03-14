@@ -7,7 +7,8 @@ const app = {
          withoutAnimation: false,
          isClose: false,
          router: false
-      },
+        },
+        language: Cookies.get('language') || 'zh',
     },
     mutations: {
         TOGGLE_SIDEBAR: state => {
@@ -24,6 +25,10 @@ const app = {
         },
         SET_ROUTER: state => {
             state.sidebar.router = true;
+        },
+        SET_LANGUAGE: (state,language)=> {
+            state.language = language
+            Cookies.set("language",language)
         }
     },
     actions: {
@@ -35,6 +40,9 @@ const app = {
        },
        setRouter({commit}) {
          commit('SET_ROUTER')
+       },
+       setLanguage({commit},language) {
+          commit('SET_LANGUAGE',language)
        }
     }
 }

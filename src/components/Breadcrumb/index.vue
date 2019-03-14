@@ -1,9 +1,13 @@
 <template>
  <el-breadcrumb class="app-breadcrumb" separator="/">
   <transition-group name="breadcrumb">
-    <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path" v-if='item.meta.title'>
+    <!-- <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path" v-if='item.meta.title'>
        <span v-if='item.redirect==="noredirect"||index==levelList.length-1' class="no-redirect">{{generateTitle(item.meta.title)}}</span>
       <router-link v-else :to="item.path">{{generateTitle(item.meta.title)}}</router-link>
+    </el-breadcrumb-item> -->
+    <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.name">
+        <span v-if='item.redirect==="noredirect"||index==levelList.length-1' class="no-redirect">{{generateTitle(item.meta.title)}}</span>
+      <router-link v-else :to="{name: item.name}">{{generateTitle(item.meta.title)}}</router-link> 
     </el-breadcrumb-item>
   </transition-group>
 </el-breadcrumb>
@@ -21,14 +25,33 @@ export default {
   },
   methods: {
     generateTitle,
-    getBreadcrumb() {
-       let matched = this.$route.matched.filter(item => item.name);
+    // getBreadcrumb() {
+    //    let matched = this.$route.matched.filter(item => item.name);
+    //   const first = matched[0];
+    //   if (first && first.name !== 'dashboard') {
+    //     matched = [...[{ path: '/dashboard', meta: { title: 'dashboard' }}],...matched]
+    //   }
+    //   this.levelList = matched
+    // }
+      getBreadcrumb() {
+           console.log(this.$route.matched)
+           let matched = this.$route.matched.filter(item => item.name).map(item => {
+          // console.log(item)
+          let obj = {
+              icon: (item.meta && item.meta.icon) || '',
+              name: item.name,
+              meta: item.meta,
+              redirect: item.redirect || 'noredirect'
+          }
+          return obj
+       })
       const first = matched[0];
       if (first && first.name !== 'dashboard') {
-        matched = [...[{ path: '/dashboard', meta: { title: 'dashboard' }}],...matched]
+        matched = [...[{ path: '/dashboard', meta: { title: 'dashboard' },name: 'dashboard'}],...matched]
       }
       this.levelList = matched
-    }
+
+      }
   },
   watch: {
     $route() {

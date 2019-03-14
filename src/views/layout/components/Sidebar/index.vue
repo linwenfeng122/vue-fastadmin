@@ -1,22 +1,22 @@
 <template>
-        <el-scrollbar wrapClass="scrollbar-wrapper">
-             <el-menu
-              :default-active="$route.path"
-              :collapse="isCollapse"
-               background-color="#222d32"
-               text-color="#b8c7ce"
-               active-text-color="#fff"
-               :default-openeds="opened"
-               @select="select"
-              >
-              <nav class="fast-title">
-                 FastAdmin
-              </nav>
-              <user />
-              <search />
-              <sidebar-item :routes="constantRouterMap" />
-            </el-menu>
-        </el-scrollbar>
+    <el-scrollbar wrapClass="scrollbar-wrapper">
+          <el-menu
+          :default-active="$route.name"
+          :collapse="isCollapse"
+            background-color="#222d32"
+            text-color="#b8c7ce"
+            active-text-color="#fff"
+            :default-openeds="opened"
+            @select="select"
+          >
+          <nav class="fast-title">
+              FastAdmin
+          </nav>
+          <user />
+          <search />
+          <sidebar-item :routes="constantRouterMap" :base-path="$route.path" />
+        </el-menu>
+    </el-scrollbar>
 </template>
 <script>
 import { constantRouterMap,asyncRouterMap } from '@/router'

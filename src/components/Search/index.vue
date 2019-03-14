@@ -49,7 +49,7 @@ export default {
                }else{
                   item.children.forEach(item1 => {
                       if (!item1.children) {
-                           item1.newPath = item.path + '/' + item1.path;
+                          //  item1.newPath = item.path + '/' + item1.path;
                            array.push(item1)
                       }else{
 
@@ -67,8 +67,9 @@ export default {
       handleSelect(item) {
         // console.log(item);
         this.$store.dispatch("closeSubMenu");
-        if (!item.newPath) this.$router.push({path: item.path})
-        else this.$router.push({path: item.newPath})  
+        // if (!item.newPath) this.$router.push({path: item.path})
+        // else this.$router.push({path: item.newPath})  
+        this.$router.push({name: item.name})
       },
       handleIconClick(ev) {
         //  this.state = "";

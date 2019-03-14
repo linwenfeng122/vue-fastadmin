@@ -13,19 +13,15 @@
 <script>
 import Cookies from 'js-cookie'
 export default {
-  data() {
-    return {
-      language: 'zh'
+  computed: {
+    language() {
+      return this.$store.getters.language
     }
-  },
-  mounted() {
-     if (Cookies.get('language')) this.language = Cookies.get('language')
   },
   methods: {
     handleSetLanguage(lang) {
       this.$i18n.locale = lang
-      this.language = lang;
-       Cookies.set('language', lang)
+      this.$store.dispatch('setLanguage',lang)
       this.$message({
         message: 'switch language success',
         type: 'success'
